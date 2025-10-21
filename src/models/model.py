@@ -2,9 +2,12 @@
 Este archivo definira el modelo utilizado en la aplicacion. Este modelo sera
 la base de todos los datos serializados y guardados en formato JSON.
 """
+import json
+
 
 class Model:
-    def __init__(self, *args, **kwargs):
+    def __init__(self, model_name: str, *args, **kwargs):
+        self.model_name = model_name
         self.fields = kwargs
         self.fields_verbose = None
         self.json_data = {}
@@ -30,6 +33,6 @@ class Model:
             self.fields_verbose[key] = value
 
     @classmethod
-    def from_json(cls, json_data):
+    def from_json(cls, json_data: dict):
         instance = cls(**json_data)
         return instance
