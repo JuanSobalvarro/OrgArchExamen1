@@ -33,6 +33,6 @@ class Model:
             self.fields_verbose[key] = value
 
     @classmethod
-    def from_json(cls, model_name: str, json_data: dict):
-        instance = cls(model_name=model_name, **json_data)
+    def from_json(cls, json_data: dict):
+        instance = cls(**json_data)
         return instance

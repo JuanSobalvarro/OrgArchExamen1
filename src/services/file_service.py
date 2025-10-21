@@ -9,9 +9,22 @@ from src.models.component import Component
 
 class FileService:
     def __init__(self, file_path):
-        self.file_path = file_path
+        self.file_path = self.sanitize_file(file_path)
         # index principal, es automatico dado que cada linea es un modelo, por lo tanto el indice categorico guardara dadas ciertas categorias los indice de los modelos a estas
         self.category_index = {}
+    
+    def sanitize_file(self, path: str):
+        """
+        Crea el archivo si no existe y retorna la ruta saneada.
+        """
+        try:
+            with open(path, 'r+') as f:
+                pass
+        except FileNotFoundError:
+            with open(path, 'w+') as f:
+                pass
+        return path
+
 
     def load_models(self, models: list[Component]):
         with open(self.file_path, 'w') as f:
@@ -33,7 +46,7 @@ class FileService:
         with open(self.file_path, 'r') as f:
             for line_number, line in enumerate(f):
                 data = json.loads(line)
-                model = Component.from_json("Componente", data)
+                model = Component.from_json(data)
                 category = model.category
                 if category not in self.category_index:
                     self.category_index[category] = []
@@ -54,7 +67,7 @@ class FileService:
         with open(self.file_path, 'r') as f:
             for line in f:
                 data = json.loads(line)
-                models.append(Component.from_json("Componente", data))
+                models.append(Component.from_json(data))
         return models
     
     def find_by_sku(self, sku: str) -> Component | None:
@@ -65,7 +78,7 @@ class FileService:
             for line in f:
                 data = json.loads(line)
                 if data.get('sku') == sku:
-                    return Component.from_json("Componente", data)
+                    return Component.from_json(data)
         return None
 
     def get_model_by_index(self, index: int) -> Component | None:
@@ -77,7 +90,7 @@ class FileService:
             for current_index, line in enumerate(f):
                 if current_index == index:
                     data = json.loads(line)
-                    return Component.from_json("Componente", data)
+                    return Component.from_json(data)
         return None
 
 
@@ -97,6 +110,6 @@ class FileService:
             for current_index, line in enumerate(f):
                 if current_index in indices:
                     data = json.loads(line)
-                    models.append(Component.from_json("Componente", data))
+                    models.append(Component.from_json(data))
         return models
 
