@@ -113,3 +113,18 @@ class FileService:
                     models.append(Component.from_json(data))
         return models
 
+    def clear_file(self):
+        """
+        Limpia el contenido del archivo.
+        """
+        with open(self.file_path, 'w') as f:
+            pass
+        self.category_index = {}
+    
+    def delete_file(self):
+        """
+        Elimina el archivo fisico.
+        """
+        import os
+        os.remove(self.file_path)
+        self.category_index = {}

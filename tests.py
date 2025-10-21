@@ -41,7 +41,7 @@ def test_model_serialization():
 
     print("Model serialization test passed.")
 
-def test_file_service():
+def test_file_service_creation():
     from src.services.file_service import FileService
     import os
 
@@ -49,13 +49,44 @@ def test_file_service():
     
     assert os.path.exists("./test_data.json")
 
-    print("File service test passed.")
+    print("File service creation test passed.")
+
+def test_file_service_add_and_get():
+    from src.services.file_service import FileService
+    from src.models.component import Component
+    import os
+
+    file_service = FileService("./test_data.json")
+
+    models = []
+    for i in range(5):
+        component = Component(
+            sku=f"TEST{i}",
+            name=f"Test Component {i}",
+            supplier="TestSupplier",
+            category="TestCategory",
+            current_stock=100 + i
+        )
+        models.append(component)
+        file_service.add_model(component)
+
+    retrieved_models = file_service.sequential_read()
+
+    for original, retrieved in zip(models, retrieved_models):
+        assert original.sku == retrieved.sku
+        assert original.name == retrieved.name
+        assert original.supplier == retrieved.supplier
+        assert original.category == retrieved.category
+        assert original.current_stock == retrieved.current_stock
+    
+    print("File service add and get test passed.")
 
 
 def main():
     test_model_creation()
     test_model_serialization()
-    test_file_service()
+    test_file_service_creation()
+    test_file_service_add_and_get()
 
 if __name__ == "__main__":
     main()
