@@ -3,6 +3,7 @@ Este archivo definira el servicio de manejo de archivos para lal lectura secuenc
 busqueda directa y acceso indexado de archivos. Esto manejando modelos serializados en JSON.
 """
 import json
+import datetime as dt
 
 from src.models.component import Component
 
@@ -83,7 +84,7 @@ class FileService:
 
     def get_model_by_index(self, index: int) -> Component | None:
         """
-        Acceso directo por indice, accede al archivo y retorno el modelo dado el indice. Los offsets deben
+        Acceso indexado, accede al archivo y retorno el modelo dado el indice. Los offsets deben
         estar definidos por el index.
         """
         with open(self.file_path, 'r') as f:
@@ -112,6 +113,21 @@ class FileService:
                     data = json.loads(line)
                     models.append(Component.from_json(data))
         return models
+
+    def get_old_and_low_models(self, start_date: dt.date, end_date: dt.date) -> list[Component]:
+        """
+        Esta funcion devuelve todos los modelos que tienen un stock menor a 10 u
+        y last entry dentro del rango especificado
+        """
+        old_models = []
+        with open(self.file_path, 'r') as f:
+            for line in f:
+                data = json.loads(line)
+                model = Component.from_json(data)
+                if model.current_stock and model.last_entry_date is not None:
+                    if model.current_stock < 10 and start_date <= model.last_entry_date <= end_date:
+                        old_models.append(model)
+        return old_models
 
     def clear_file(self):
         """
