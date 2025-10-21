@@ -1,0 +1,20 @@
+{"sku": "E001", "name": "Resistor 10kΩ", "supplier": "ElectroNica", "category": "Eléctrico", "current_stock": 50, "last_entry_date": "2024-10-12"}
+{"sku": "E002", "name": "Condensador 100µF", "supplier": "ElectroNica", "category": "Eléctrico", "current_stock": 25, "last_entry_date": "2023-12-03"}
+{"sku": "E003", "name": "Diodo 1N4007", "supplier": "CompuParts", "category": "Eléctrico", "current_stock": 80, "last_entry_date": "2025-01-22"}
+{"sku": "E004", "name": "Transistor BC547", "supplier": "MicroTech", "category": "Semiconductores", "current_stock": 40, "last_entry_date": "2024-06-17"}
+{"sku": "E005", "name": "LED Rojo 5mm", "supplier": "CompuParts", "category": "Iluminación", "current_stock": 150, "last_entry_date": "2025-05-01"}
+{"sku": "E006", "name": "LED Azul 5mm", "supplier": "CompuParts", "category": "Iluminación", "current_stock": 120, "last_entry_date": "2025-04-28"}
+{"sku": "E007", "name": "Switch Táctil", "supplier": "ElectroNica", "category": "Mecánico", "current_stock": 60, "last_entry_date": "2024-11-10"}
+{"sku": "E008", "name": "Potenciómetro 10kΩ", "supplier": "MicroTech", "category": "Control", "current_stock": 35, "last_entry_date": "2024-09-21"}
+{"sku": "E009", "name": "Motor DC 5V", "supplier": "RoboTech", "category": "Motores", "current_stock": 12, "last_entry_date": "2023-07-14"}
+{"sku": "E010", "name": "Sensor Ultrasonido HC-SR04", "supplier": "RoboTech", "category": "Sensores", "current_stock": 18, "last_entry_date": "2024-03-19"}
+{"sku": "E011", "name": "Sensor Temperatura LM35", "supplier": "MicroTech", "category": "Sensores", "current_stock": 22, "last_entry_date": "2023-11-08"}
+{"sku": "E012", "name": "Arduino UNO R3", "supplier": "RoboTech", "category": "Microcontroladores", "current_stock": 10, "last_entry_date": "2024-12-25"}
+{"sku": "E013", "name": "Raspberry Pi 4", "supplier": "TechWorld", "category": "Microcontroladores", "current_stock": 5, "last_entry_date": "2023-05-09"}
+{"sku": "E014", "name": "Cables Dupont (M-M)", "supplier": "ElectroNica", "category": "Accesorios", "current_stock": 100, "last_entry_date": "2025-02-10"}
+{"sku": "E015", "name": "Cables Dupont (F-F)", "supplier": "ElectroNica", "category": "Accesorios", "current_stock": 90, "last_entry_date": "2025-02-10"}
+{"sku": "E016", "name": "Display LCD 16x2", "supplier": "MicroTech", "category": "Pantallas", "current_stock": 8, "last_entry_date": "2023-09-01"}
+{"sku": "E017", "name": "Display OLED 0.96\"", "supplier": "MicroTech", "category": "Pantallas", "current_stock": 15, "last_entry_date": "2024-05-30"}
+{"sku": "E018", "name": "Relevador 5V", "supplier": "CompuParts", "category": "Control", "current_stock": 27, "last_entry_date": "2024-07-11"}
+{"sku": "E019", "name": "Fuente 12V 2A", "supplier": "ElectroNica", "category": "Fuentes", "current_stock": 6, "last_entry_date": "2023-06-06"}
+{"sku": "E020", "name": "Módulo WiFi ESP8266", "supplier": "TechWorld", "category": "Comunicación", "current_stock": 9, "last_entry_date": "2024-08-13"}
